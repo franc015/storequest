@@ -80,7 +80,7 @@ printf("This is set: %d\n", set);
 			printf("Toys are on ilse aisles 9 and 10 . There are 300 different types left. They are between $.99 and $500 per toy.");
 			break;
 		case 5:
-			printf("Games are on ilse aisle 9. There are 10 different types left. They are between $14.98 and %59.95 per game.");
+			printf("Games are on ilse aisle 9. There are 10 different types left. They are between $14.98 and $59.95 per game.");
 			break;
 
 		case 6:
