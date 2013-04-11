@@ -12,17 +12,22 @@ int main (void){
 
 	char search[50];
 	int set;
+	FILE *in;
 
 	instructions();
 
+	in = fopen("produc.in", "r");
 
 	do{
 		printf("Input an item> ");
 		scanf("%s", &search);
+
 		set = create_case(search);
 		search_op(set);
 
 	}while(search != 'q');
+
+	fclose(in);
 
 	return 0;
 }
