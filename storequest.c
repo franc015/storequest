@@ -5,7 +5,8 @@
 #include <string.h>
 
 void instructions();
-int strcmp(char* str1[50], char* str2[50]);
+//int strcmp(char* str1[50], char* str2[50]);
+int strcmp(char* search);
 void search_op(int set);
 
 int main (void){
@@ -13,6 +14,7 @@ int main (void){
 	int strcmp1[50];
 	char* str1[50];
 	char* str2[50];
+	char* search;
 	int set;
 	FILE *in;
 
@@ -22,11 +24,13 @@ int main (void){
 
 	do{
 		printf("Input an item> ");
-		scanf("%s", str1[50]);
+		//	scanf("%s", str1[50]);
+		scanf("%s", search);
 
 		fscanf(in, "%s", str2[50]);
 
-		set = strcmp(*str1[50], *str2[50]);
+	//	set = strcmp(*str1[50], *str2[50]);
+		set = strcmp(char* search);
 		search_op(set);
 
 	}while(*str1[50] != 'q');
@@ -43,21 +47,23 @@ void instructions(){
 
 
 
-int strcmp(char* str1[50], char* str2[50]){
+//int strcmp(char* str1[50], char* str2[50]){
+int strcmp(char* search){
 	int set;
-//	char str2[50] = "Soda";
-	if(strcmp(*str1[50], *str2[50]) == 0) set = 0;
-	/*if(search == "Soda") set = 0;
-	  else if(search == "Cereal") set = 1;
-	  else if(search == "Soap") set = 2;
-	  else if(search == "Shampoo") set = 3;
-	  else if(search == "Toys") set = 4;
-	  else if(search == "Games") set = 5;
-	  else if(search == "Paper") set = 6;
-	  else if(search == "Bags") set = 7;
-	  else if(search == "Candy") set = 8;
-	  else if(search == "Bread") set = 9;
-	  else if(search == "H") set = 10;
+char* search;
+	//	char str2[50] = "Soda";
+	//	if(strcmp(*str1[50], *str2[50]) == 0) set = 0;
+	if(search == "Soda") set = 0;
+	/*	  else if(search == "Cereal") set = 1;
+		  else if(search == "Soap") set = 2;
+		  else if(search == "Shampoo") set = 3;
+		  else if(search == "Toys") set = 4;
+		  else if(search == "Games") set = 5;
+		  else if(search == "Paper") set = 6;
+		  else if(search == "Bags") set = 7;
+		  else if(search == "Candy") set = 8;
+		  else if(search == "Bread") set = 9;
+		  else if(search == "H") set = 10;
 	 */	else set = 11;
 
 	return (set);
