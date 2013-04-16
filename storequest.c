@@ -4,23 +4,28 @@
 #include <stdio.h>
 #include <string.h>
 
+<<<<<<< HEAD
 void instructions();
 //int strcmp(char* str1[50], char* str2[50]);
 int strcmp(char* search);
+=======
+void instructions(void);
+int strcmp(char *str1[50], char *str2[50]);
+>>>>>>> 4fcb0cb7c2c5cc9e224172371bdac64ff68365bb
 void search_op(int set);
 
-int main (void){
-
-	int strcmp1[50];
+int main (void)
+{
 	char* str1[50];
 	char* str2[50];
 	char* search;
 	int set;
-	FILE *in;
+	FILE *in; 
 
 	instructions();
 
 	in = fopen("produc.in", "r");
+	char product[10][8] = {in};
 
 	do{
 		printf("Input an item> ");
@@ -37,12 +42,13 @@ int main (void){
 
 	fclose(in);
 
-	return 0;
+	return (0);
 }
-
-void instructions(){
+void instructions(void)
+{
 	printf("Welcome to Store Quest. Search an item. If you need help enter (H). If you wish to quit enter (Q).\n");
 }
+<<<<<<< HEAD
 
 
 
@@ -65,16 +71,41 @@ char* search;
 		  else if(search == "Bread") set = 9;
 		  else if(search == "H") set = 10;
 	 */	else set = 11;
+=======
+int strcmp(char *str1[50], char *str2[50])
+{
+	int set;
 
-	return (set);
+	if(strcmp(*str1[50], *str2[50]))
+	{
+		printf("%c ", *str2[50]);
+	}
+	else
+	{
+		printf("Item not in stock.");
+	}
+			
+	/*if(search == "Soda") set = 0;
+	  else if(search == "Cereal") set = 1;
+	  else if(search == "Soap") set = 2;
+	  else if(search == "Shampoo") set = 3;
+	  else if(search == "Toys") set = 4;
+	  else if(search == "Games") set = 5;
+	  else if(search == "Paper") set = 6;
+	  else if(search == "Bags") set = 7;
+	  else if(search == "Candy") set = 8;
+	  else if(search == "Bread") set = 9;
+	  else if(search == "H") set = 10;
+	else set = 11;*/
+>>>>>>> 4fcb0cb7c2c5cc9e224172371bdac64ff68365bb
+
+	return(0);
 }
-
-
-
-
-void search_op(int set){
+void search_op(int set)
+{
 	printf("This is set: %d\n", set);
-	switch(set){
+	switch(set)
+	{
 
 		case 0:
 			printf("Soda is on ilse aisle 8. There are 30 bottles left. They are $1.99 per bottle.");
@@ -124,4 +155,3 @@ void search_op(int set){
 
 	}
 }
-
