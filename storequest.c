@@ -5,9 +5,7 @@
 #include <string.h>
 
 <<<<<<< HEAD
-void instructions();
-//int strcmp(char* str1[50], char* str2[50]);
-int strcmp(char* search);
+void instructions(void);
 =======
 void instructions(void);
 int strcmp(char *str1[50], char *str2[50]);
@@ -35,7 +33,7 @@ int main (void)
 		fscanf(in, "%s", str2[50]);
 
 	//	set = strcmp(*str1[50], *str2[50]);
-		set = strcmp(char* search);
+		set = strcmp(*search);
 		search_op(set);
 
 	}while(*str1[50] != 'q');
@@ -46,7 +44,7 @@ int main (void)
 }
 void instructions(void)
 {
-	printf("Welcome to Store Quest. Search an item. If you need help enter (H). If you wish to quit enter (Q).\n");
+	printf("\nWelcome to Store Quest. Search an item. If you need help enter (H). If you wish to quit enter (Q).\n");
 }
 <<<<<<< HEAD
 
