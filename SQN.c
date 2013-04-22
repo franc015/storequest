@@ -36,11 +36,16 @@ int main(void)
 	printf("Enter Department: ");
 	scanf("%s", search_d);
 
-printf("before d_cmp");
 
 	foundIndex = d_cmp(search_d, departments, i);
-
+if (foundIndex != 17)
+{
 	printf("The index number found is %d\n\n",foundIndex);
+}
+else
+{
+	printf("The department you entered is not found.\n\n");
+}
 
 	fclose(in);
 
@@ -60,10 +65,10 @@ int d_cmp(char *search_d, char *department[], int num_d)
 			printf("\nyour in a department\n");
 			break;
 		}
-		else
+/*		else
 		{
 			printf("\ndepartment does not exisit\n");
-		}
+		}*/
 	}
 
 	return i;
