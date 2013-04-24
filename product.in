@@ -1,17 +1,81 @@
-beauty
-cereal
-snacks
-bread
-pharmacy
-produce
-baby
-pet
-frozen
-dairy
-paper
-drinks
-liquor
-cans
-bakery
-meats
-cleaning
+foundation 0 1 2 500 9.99
+mascara 0 2 4 300 5.49
+lipstick 0 2 6 210 4.95
+nail 0 3 1 620 2.99
+blush 0 1 3 120 3.98
+eye 0 2 1 426 5.99
+hair 0 3 3 269 7.49
+acne 0 1 7 70 14.68
+
+life 1 26 2 8 3.99
+pops 1 26 2 12 3.49
+kix 1 26 3 10 2.99
+wheaties 1 26 4 6 1.99
+cheerios 1 26 1 20 1.99
+pebbles 1 26 1 9 3.97
+oatmeal 1 27 1 36 4.93
+granola 1 27 3 7 6.99
+porridge 1 27 2 4 8.99
+bran 1 27 4 2 6.87
+
+fritos 2 35 29 4.25
+lays 2 35 7 30 3.95
+potato 2 35 8 50 2.35
+corn 2 35 9 60 4.94
+doritos 2 35 10 30 3.56
+pretzels 2 36 2 27 5.67
+cheetos 2 36 4 49 2.59
+ritz 2 36 5 21 2.99
+saltines 2 36 6 25 1.98
+oreos 2 37 1 15 5.46
+chocolate 2 37 2 26 4.19
+oatmeal 2 37 4 7 3.49
+raisn 2 37 5 4 3.99
+shortbeard 2 37 3 5 6.97
+
+apples 5 17 4 50 1.29
+lettuce 5 17 8 25 2.48
+avocado 5 17 7 43 1.99
+pineapple 5 17 3 15 4.76
+jicama 5 18 6 27 3.98
+tomatos 5 18 2 74 1.42
+onions 5 18 9 52 1.64
+cucumbers 5 18 4 36 1.52
+oranges 5 19 1 49 1.29
+strawberry 5 19 8 26 2.98
+grapes 5 19 3 18 3.75
+chili 5 19 6 62 1.00
+patatos 5 20 7 29 5.98
+melons 5 20 2 14 2.75
+carrot 5 20 5 46 3.57
+bananas 5 20 6 30 1.54
+
+diapers 6 23 4 34 45.32
+formula 6 23 2 53 16.94
+stroller 6 23 7 26 110.98
+wipes 6 23 3 28 11.53
+bibs 6 23 6 15 3.74
+binkies 6 24 8 11 2.83
+lotion 6 24 4 28 8.93
+shampoo 6 24 1 21 6.47
+boys 6 24 9 143 7.58
+girls 6 24 7 157 8.53
+toys 6 25 3 128 34.75
+medicine 6 25 26 9.72
+powder 6 25 1 12 8.27
+food 6 25 3 63 3.86
+bottles 6 25 2 4.92
+
+leashes
+clothes
+toys
+dog
+cat
+food
+litter
+cage
+pillow
+fish
+tanks
+filters
+
