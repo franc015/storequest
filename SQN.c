@@ -20,8 +20,8 @@ int main(void)
 
 	instructions();
 
-	//department *departments = malloc(sizeof(department *) * 17);
-	department *departments[17];
+	department *departments = malloc(sizeof(department *) * 17);
+	//department *departments[17];
 
 	in = fopen("department.in", "r");
 
@@ -40,7 +40,7 @@ printf("This is buffer: %s\n", buffer);
 		a_department->d_index = temp_index;
 		printf("This department's index is: %d\n", a_department->d_index);
 		strcpy(a_department->department_name, temp_department_name);
-		departments[num_d] = a_department;
+		departments[num_d] = *a_department;
 		num_d++;
 
 	}
@@ -85,12 +85,12 @@ int d_cmp(char *search_d, department *departments, int num_d)
 
 	for(i = 0; i < num_d; i++)
 	{
-		if(strcmp(search_d, departments[i]->department_name) == 0)
+		if(strcmp(search_d, departments[i].department_name) == 0)
 		{
 			printf("\nyour in a department\n");
 			break;
 		}
 	}
 
-	return (departments[i]->d_index);
+	return (departments[i].d_index);
 }
