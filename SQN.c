@@ -7,6 +7,16 @@ typedef struct{
 	char department_name[256];
 }department;
 
+typedef struct{
+	int p_index;
+	char product_name[256];
+	int d_index;
+	int aisle;
+	int shelf;
+	int quantity;
+		double price;
+}product;
+
 void instructions(void);
 int d_cmp(char *search_d, department *departments, int num_d);	//d = department, cmp = compare
 
@@ -33,8 +43,8 @@ int main(void)
 	//for(status = fgets(buffer, 256, in); status != 0; status = fgets(buffer, 256, in))
 	while(fgets(buffer, 256, in) != NULL)
 	{
-printf("start");
-printf("This is buffer: %s\n", buffer);
+		printf("start");
+		printf("This is buffer: %s\n", buffer);
 		sscanf(buffer, "%d %s", &temp_index, temp_department_name);
 		department *a_department = (department *) malloc(sizeof(department));
 		a_department->d_index = temp_index;
