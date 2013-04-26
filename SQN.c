@@ -140,7 +140,8 @@ void scan_product(product* products, char* filename){
 
 void show_prod_by_dept(int department_index, int product_count, product* products){
 
-	for(int i = 0; i < product_count; i++){
+	int i;
+	for(i = 0; i < product_count; i++){
 
 		if (products[i].d_index == department_index){
 			printf("Product: %s, Aisle Number: %d, Shelf: %d, Quantity: %d, Price: $%.2lf\n", products[i].product_name, products[i].aisle, products[i].shelf, products[i].quantity, products[i].price);
