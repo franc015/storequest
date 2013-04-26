@@ -19,58 +19,39 @@ typedef struct{
 
 void instructions(void);
 int d_cmp(char *search_d, department *departments, int num_d);	//d = department, cmp = compare
+int file_length(char* filename);
+void scan_department(department* departments, char* filename);
 
 int main(void)
 {
+	char* filename = "department.in";
+	int department_count = file_length(filename);
 	char search_d[9];	//d = deprartment
-	FILE *in;
 	int num_d = 0;		//num = number, d = department
 	int j;
 	int foundIndex;
 
 	instructions();
 
-	department *departments = malloc(sizeof(department *) * 17);
-	//department *departments[17];
+	department departments[department_count];
+	scan_department(departments, filename);
 
-	in = fopen("department.in", "r");
-
-	int temp_index;
-	char temp_department_name[256];	
-	char buffer[256];
-	char *status;
-
-	//for(status = fgets(buffer, 256, in); status != 0; status = fgets(buffer, 256, in))
-	while(fgets(buffer, 256, in) != NULL)
-	{
-		printf("start");
-		printf("This is buffer: %s\n", buffer);
-		sscanf(buffer, "%d %s", &temp_index, temp_department_name);
-		department *a_department = (department *) malloc(sizeof(department));
-		a_department->d_index = temp_index;
-		printf("This department's index is: %d\n", a_department->d_index);
-		strcpy(a_department->department_name, temp_department_name);
-		departments[num_d] = *a_department;
-		num_d++;
-
-	}
-	printf("end");
-
-	printf("We scanned %d departments", num_d);
+                
+	printf("We scanned %d departments", department_count);
 	getchar();
 
 	printf("The departments are:\n");
 
-	for (j = 0; j < num_d; j++)
+	for (j = 0; j < department_count; j++)
 	{
-		//printf("\t%s - index: %d\n",departments[j]->department_name, j);
+		printf("\t%s - index: %d\n",departments[j].department_name, departments[j].d_index);
 	}
 
 	printf("Enter Department: ");
 	scanf("%s", search_d);
 
 
-	foundIndex = d_cmp(search_d, departments, num_d);
+	foundIndex = d_cmp(search_d, departments, department_count);
 	if (foundIndex != 17)
 	{
 		printf("The index number found is %d\n\n",foundIndex);
@@ -80,7 +61,6 @@ int main(void)
 		printf("The department you entered is not found.\n\n");
 	}
 
-	fclose(in);
 
 	return(0);
 }
@@ -89,7 +69,7 @@ void instructions(void)
 	printf("\nWELCOME TO STORE QUEST\n");
 	printf("Search a department. If you need help enter (H). If you wish to quit enter (Q).\n");
 }
-int d_cmp(char *search_d, department *departments, int num_d)
+int d_cmp(char *search_d, department* departments, int num_d)
 {
 	int i;
 
@@ -104,3 +84,33 @@ int d_cmp(char *search_d, department *departments, int num_d)
 
 	return (departments[i].d_index);
 }
+
+int file_length(char* filename){
+
+        FILE *in;
+        in = fopen(filename, "r");
+        int i = 0;
+        char * buffer = malloc(256 * sizeof(char));
+        while((fgets(buffer, 256, in)) != NULL){
+                i++;
+        }
+
+        return i;
+}
+
+void scan_department(department* departments, char* filename){
+
+        FILE *in;
+        in = fopen(filename, "r");
+        int i = 0;
+        char * buffer = malloc(256 * sizeof(char));
+        while((fgets(buffer, 256, in)) != NULL){
+                department *current_department = malloc(sizeof(department));
+
+                sscanf(buffer, "%d %s", &current_department->d_index, current_department->department_name);
+                departments[i] = *current_department;
+                i++;
+        }
+	fclose(in);
+}
+
