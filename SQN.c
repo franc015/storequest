@@ -28,8 +28,8 @@ void show_individual_product(char *search_p, int product_count, product* product
 int main(void)
 {
 	char* d_filename = "department.in";
-	int department_count = file_length(d_filename);
 	char* p_filename = "product.in";
+	int department_count = file_length(d_filename);
 	int product_count = file_length(p_filename);
 	char search_d[9];	//d = deprartment
 	char search_p[9];	//p = product
