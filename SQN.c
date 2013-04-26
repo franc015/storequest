@@ -17,6 +17,7 @@ typedef struct{
 }product;
 
 void instructions(void);
+void help(void);
 int d_cmp(char *search_d, department *departments, int num_d);	//d = department, cmp = compare
 int file_length(char* filename);
 void scan_department(department* departments, char* filename);
@@ -43,40 +44,45 @@ int main(void)
 	product products[product_count];
 	scan_product(products, p_filename);
 
+	printf("Scanning departments and products now.\n");
+	printf("We scanned %d departments\n", department_count);
 
-	printf("We scanned %d departments", department_count);
-	getchar();
+	printf("Enter Command: ");
+	scanf("%s", command);
 
-	printf("The departments are:\n");
+	while(strcmp(command, "Q") != 0 && strcmp(command, "q") != 0){
+		if(strcmp(command, "D") == 0 || strcmp(command, "d") == 0){
+			printf("The departments are:\n");
+			for (j = 0; j < department_count; j++)
+			{
+				printf("\t%s - index: %d\n",departments[j].department_name, departments[j].d_index);
+			}
 
-	while(strcmp(command, "Q") != 0){
+			printf("Enter Department: ");
+			scanf("%s", search_d);
+
+
+			foundIndex = d_cmp(search_d, departments, department_count);
+			if (foundIndex != 17)
+			{
+				printf("The index number found is %d\n\n",foundIndex);
+				printf("Products:\n");
+				show_products(foundIndex, product_count, products);
+				printf("Enter Product: ");
+				scanf("%s", search_p);
+				show_individual_product(search_p, product_count, products);
+
+			}
+			else
+			{
+				printf("The department you entered is not found.\n\n");
+			}
+		}
+		else if(strcmp(command, "H") == 0 || strcmp(command, "h") == 0){
+			help();
+		}
 		printf("Enter Command: ");
 		scanf("%s", command);
-
-		for (j = 0; j < department_count; j++)
-		{
-			printf("\t%s - index: %d\n",departments[j].department_name, departments[j].d_index);
-		}
-
-		printf("Enter Department: ");
-		scanf("%s", search_d);
-
-
-		foundIndex = d_cmp(search_d, departments, department_count);
-		if (foundIndex != 17)
-		{
-			printf("The index number found is %d\n\n",foundIndex);
-			printf("Products:\n");
-			show_products(foundIndex, product_count, products);
-			printf("Enter Product: ");
-			scanf("%s", search_p);
-			show_individual_product(search_p, product_count, products);
-
-		}
-		else
-		{
-			printf("The department you entered is not found.\n\n");
-		}
 	};
 
 	return(0);
@@ -84,8 +90,18 @@ int main(void)
 void instructions(void)
 {
 	printf("\nWELCOME TO STORE QUEST\n");
-	printf("Search a department. If you need help enter (H). If you wish to quit enter (Q).\n");
+	printf("Search a department and its products enter (D).\n");
+	printf("If you need help enter (H). If you wish to quit enter (Q).\n\n");
 }
+
+void help(void)
+{
+	printf("\nA helpful associate is being sent to your location.\n");
+	printf("You may also try one of these helpful commands:\n");
+	printf("Search a department and its products enter (D).\n");
+	printf("If you need help enter (H). If you wish to quit enter (Q).\n\n");
+}
+
 int d_cmp(char *search_d, department* departments, int num_d)
 {
 	int i;
