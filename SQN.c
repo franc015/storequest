@@ -21,7 +21,8 @@ int d_cmp(char *search_d, department *departments, int num_d);	//d = department,
 int file_length(char* filename);
 void scan_department(department* departments, char* filename);
 void scan_product(product* products, char* filename);
-void show_prod_by_dept(int department_index, int product_count, product* products);
+void show_products(int department_index, int product_count, product* products);
+void show_individual_product(char *search_p, int product_count, product* products);
 
 int main(void)
 {
@@ -30,7 +31,8 @@ int main(void)
 	char* p_filename = "product.in";
 	int product_count = file_length(p_filename);
 	char search_d[9];	//d = deprartment
-	int num_d = 0;		//num = number, d = department
+	char search_p[9];	//p = product
+	char command[9];	//p = product
 	int j;
 	int foundIndex;
 
@@ -47,28 +49,35 @@ int main(void)
 
 	printf("The departments are:\n");
 
-	for (j = 0; j < department_count; j++)
-	{
-		printf("\t%s - index: %d\n",departments[j].department_name, departments[j].d_index);
-	}
+	while(strcmp(command, "Q") != 0){
+		printf("Enter Command: ");
+		scanf("%s", command);
 
-	printf("Enter Department: ");
-	scanf("%s", search_d);
+		for (j = 0; j < department_count; j++)
+		{
+			printf("\t%s - index: %d\n",departments[j].department_name, departments[j].d_index);
+		}
+
+		printf("Enter Department: ");
+		scanf("%s", search_d);
 
 
-	foundIndex = d_cmp(search_d, departments, department_count);
-	if (foundIndex != 17)
-	{
-		printf("The index number found is %d\n\n",foundIndex);
-		printf("Products:\n");
-		show_prod_by_dept(foundIndex, product_count, products);
-		
-	}
-	else
-	{
-		printf("The department you entered is not found.\n\n");
-	}
+		foundIndex = d_cmp(search_d, departments, department_count);
+		if (foundIndex != 17)
+		{
+			printf("The index number found is %d\n\n",foundIndex);
+			printf("Products:\n");
+			show_products(foundIndex, product_count, products);
+			printf("Enter Product: ");
+			scanf("%s", search_p);
+			show_individual_product(search_p, product_count, products);
 
+		}
+		else
+		{
+			printf("The department you entered is not found.\n\n");
+		}
+	};
 
 	return(0);
 }
@@ -80,17 +89,19 @@ void instructions(void)
 int d_cmp(char *search_d, department* departments, int num_d)
 {
 	int i;
+	int depart_v = 17;
 
 	for(i = 0; i < num_d; i++)
 	{
 		if(strcmp(search_d, departments[i].department_name) == 0)
 		{
 			printf("\nyour in a department\n");
+			depart_v = departments[i].d_index;
 			break;
 		}
 	}
 
-	return (departments[i].d_index);
+	return (depart_v);
 }
 
 int file_length(char* filename){
@@ -138,15 +149,24 @@ void scan_product(product* products, char* filename){
 	fclose(in);
 }
 
-void show_prod_by_dept(int department_index, int product_count, product* products){
-
+void show_products(int department_index, int product_count, product* products){
 	int i;
 	for(i = 0; i < product_count; i++){
 
 		if (products[i].d_index == department_index){
+			printf("%s\n", products[i].product_name);
+
+		}
+	}
+}
+
+void show_individual_product(char *search_p, int product_count, product* products){
+	int i;
+	for(i = 0; i < product_count; i++){
+
+		if (strcmp(search_p, products[i].product_name) == 0){
 			printf("Product: %s, Aisle Number: %d, Shelf: %d, Quantity: %d, Price: $%.2lf\n", products[i].product_name, products[i].aisle, products[i].shelf, products[i].quantity, products[i].price);
 
 		}
 	}
-
 }
